@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://6rc7bhgnr1ym"]
+
+[ext_resource type="Texture2D" uid="uid://g20n74e44j74" path="res://assets/Items/Flask_half_full_blue_item.png" id="1_ycxui"]
+
+[node name="HalfFilledFlask" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ycxui")
