@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cii11hg52lgh0"]
+
+[ext_resource type="Script" path="res://scripts/Countdown.gd" id="1_iuiyf"]
+[ext_resource type="FontFile" uid="uid://co3yqr1ntgj0h" path="res://assets/fonts/NormalFont.ttf" id="2_bdmjm"]
+
+[node name="CountdownScene" type="Control"]
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+tooltip_text = "fsdfsf"
+script = ExtResource("1_iuiyf")
+
+[node name="CountdownTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 9.0
+offset_right = 52.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("2_bdmjm")
+theme_override_font_sizes/font_size = 30
+text = "00"

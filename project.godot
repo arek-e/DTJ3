@@ -11,17 +11,30 @@ config_version=5
 [application]
 
 config/name="DTJ3"
-run/main_scene="res://scenes/CharacterMovement.tscn"
+run/main_scene="res://root.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+
 [display]
 
-window/size/viewport_width=160
-window/size/viewport_height=160
-window/size/window_width_override=640
-window/size/window_height_override=640
+window/size/viewport_width=640
+window/size/viewport_height=480
+window/size/window_width_override=960
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
 [input]
 
