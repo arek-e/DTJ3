@@ -1,12 +1,13 @@
 extends Node2D
 
-@onready var tile_map = $"../TileMap"
+@onready var tile_map = $"../../TileMap"
 @onready var character_sprite = $CharacterSprite
 @onready var move_timer = $TileMovementDelayTimer
 
 var can_move = true
 var is_moving = false
-var move_delay = 0.25
+var move_delay = 0.2
+var movement_speed = 3
 
 func _ready():
 	move_timer.connect("timeout", Callable(self, "_on_move_timer_timeout"))
@@ -20,7 +21,7 @@ func _physics_process(delta):
 		is_moving = false
 		return
 	
-	character_sprite.global_position = character_sprite.global_position.move_toward(global_position, 1)
+	character_sprite.global_position = character_sprite.global_position.move_toward(global_position, movement_speed)
 
 func _process(delta):
 	if can_move:
@@ -38,6 +39,10 @@ func _process(delta):
 			start_move_delay()
 		
 func move(direction: Vector2):
+	if (tile_map == null):
+		print("Error: tile_map is null!")
+		return
+		
 	var current_tile: Vector2i = tile_map.local_to_map(global_position)
 	
 	var target_tile: Vector2i = Vector2i(
