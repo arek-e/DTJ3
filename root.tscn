@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dn4lp7mapj83w" path="res://assets/Modern_Interiors_Free_v2.2/Modern tiles_Free/Interiors_free/32x32/Room_Builder_free_32x32.png" id="1_y3umo"]
 [ext_resource type="Texture2D" uid="uid://bp20i53y4d48u" path="res://assets/Modern_Interiors_Free_v2.2/Modern tiles_Free/Interiors_free/32x32/Interiors_free_32x32.png" id="2_umihn"]
+[ext_resource type="Texture2D" uid="uid://dkona7ybb84ve" path="res://assets/Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Red.png" id="3_l0tes"]
+[ext_resource type="PackedScene" uid="uid://cii11hg52lgh0" path="res://scenes/countdown_scene.tscn" id="4_3772o"]
 [ext_resource type="PackedScene" uid="uid://prthhauodu7w" path="res://prefab/player.tscn" id="3_dbs32"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ut25g"]
@@ -4080,3 +4082,20 @@ layer_2/name = "Furniture"
 layer_2/tile_data = PackedInt32Array(262148, 4, 10)
 
 [node name="Player" parent="." instance=ExtResource("3_dbs32")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.265625, 0.265625)
+texture = ExtResource("3_l0tes")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, 18)
+shape = SubResource("RectangleShape2D_ijrs0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CountdownScene" parent="." instance=ExtResource("4_3772o")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
