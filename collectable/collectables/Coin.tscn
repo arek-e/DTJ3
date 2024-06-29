@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://cob4nq3n8fvmj"]
+
+[ext_resource type="PackedScene" uid="uid://dtatodwyohj8y" path="res://collectable/collectable.tscn" id="1_0o4wp"]
+[ext_resource type="Script" path="res://Coin.gd" id="2_c30dr"]
+[ext_resource type="Resource" uid="uid://p2bnhpv8308b" path="res://gui/inventory/items/gold_item.tres" id="3_l278o"]
+[ext_resource type="Texture2D" uid="uid://dc3yc5o8wsrld" path="res://assets/Ninja Adventure - Asset Pack/Items/Treasure/GoldCoin.png" id="4_h517i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7kyy"]
+radius = 22.6274
+
+[node name="Collectable" instance=ExtResource("1_0o4wp")]
+script = ExtResource("2_c30dr")
+itemRes = ExtResource("3_l278o")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(3, 3)
+texture = ExtResource("4_h517i")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_b7kyy")

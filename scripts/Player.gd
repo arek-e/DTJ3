@@ -1,8 +1,9 @@
 extends Node2D
 
-@onready var tile_map = $"../../TileMap"
-@onready var character_sprite = $CharacterSprite
-@onready var move_timer = $TileMovementDelayTimer
+@onready var tile_map = $"../TileMap"
+@onready var character_sprite = $Character/CharacterSprite
+@onready var move_timer = $Character/TileMovementDelayTimer
+@onready var animation_player = $AnimationPlayer
 
 @export var inventory: Inventory
 
@@ -11,15 +12,19 @@ var is_moving = false
 var move_delay = 0.2
 var movement_speed = 3
 
+
+
 func _ready():
 	move_timer.connect("timeout", Callable(self, "_on_move_timer_timeout"))
 	set_move_delay(move_delay)
 
 func _physics_process(delta):
 	if is_moving == false:
+		animation_player.queue("Idle")
 		return
 		
 	if global_position == character_sprite.global_position:
+		animation_player.queue("Idle")
 		is_moving = false
 		return
 	
@@ -28,15 +33,19 @@ func _physics_process(delta):
 func _process(delta):
 	if can_move:
 		if Input.is_action_pressed("up"):
+			animation_player.play("Running-backwards")
 			move(Vector2.UP)
 			start_move_delay()
 		elif Input.is_action_pressed("down"):
+			animation_player.play("Running-forward")
 			move(Vector2.DOWN)
 			start_move_delay()
 		elif Input.is_action_pressed("left"):
+			animation_player.play("Running-Left")
 			move(Vector2.LEFT)
 			start_move_delay()
 		elif Input.is_action_pressed("right"):
+			animation_player.play("Running-Right")
 			move(Vector2.RIGHT)
 			start_move_delay()
 		
@@ -73,3 +82,9 @@ func _on_move_timer_timeout():
 	
 func set_move_delay(new_delay):
 	move_timer.wait_time = new_delay
+
+
+func _on_hurt_box_area_entered(area):
+	if area.has_method("collect"):
+		area.collect(inventory)
+		
