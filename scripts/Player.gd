@@ -27,13 +27,13 @@ func _process(delta):
 		if Input.is_action_pressed("up"):
 			move(Vector2.UP)
 			start_move_delay()
-		if Input.is_action_pressed("down"):
+		elif Input.is_action_pressed("down"):
 			move(Vector2.DOWN)
 			start_move_delay()
-		if Input.is_action_pressed("left"):
+		elif Input.is_action_pressed("left"):
 			move(Vector2.LEFT)
 			start_move_delay()
-		if Input.is_action_pressed("right"):
+		elif Input.is_action_pressed("right"):
 			move(Vector2.RIGHT)
 			start_move_delay()
 		
