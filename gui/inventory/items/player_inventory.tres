@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=3 format=3 uid="uid://bickpds32e7x3"]
+
+[ext_resource type="Resource" uid="uid://p2bnhpv8308b" path="res://gui/inventory/items/gold_item.tres" id="1_ily1v"]
+[ext_resource type="Script" path="res://gui/inventory/inventory.gd" id="2_2jeuf"]
+
+[resource]
+script = ExtResource("2_2jeuf")
+items = Array[Resource("res://inventory/inventory_item.gd")]([ExtResource("1_ily1v"), ExtResource("1_ily1v"), ExtResource("1_ily1v"), null, null, null, null, null, null, ExtResource("1_ily1v"), null, null, null, null, null])
