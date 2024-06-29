@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buiqgh01d0u7y"
-path="res://.godot/imported/Dead_fish.png-90cfb79bc6809a86a890f0bd39b56ce1.ctex"
+uid="uid://4fv0736346fh"
+path="res://.godot/imported/coffee-mug-1.png-be9ffaf0b9995ec83b443a4e198741f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Items/Dead_fish.png"
-dest_files=["res://.godot/imported/Dead_fish.png-90cfb79bc6809a86a890f0bd39b56ce1.ctex"]
+source_file="res://assets/coffee-mug-1.png"
+dest_files=["res://.godot/imported/coffee-mug-1.png-be9ffaf0b9995ec83b443a4e198741f1.ctex"]
 
 [params]
 
