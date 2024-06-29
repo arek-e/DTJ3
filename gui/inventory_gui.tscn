@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dticp48l1hrnf"]
+[gd_scene load_steps=4 format=3 uid="uid://dticp48l1hrnf"]
 
 [ext_resource type="Texture2D" uid="uid://c4v77fprtgvrv" path="res://assets/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Frame_01_Standard.png" id="1_7pbms"]
+[ext_resource type="Script" path="res://gui/inventory_gui.gd" id="1_p8mil"]
 [ext_resource type="PackedScene" uid="uid://krb35fh7s54p" path="res://gui/hotbar_slot.tscn" id="3_rja12"]
 
 [node name="InventoryGui" type="Control"]
@@ -8,6 +9,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_p8mil")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
