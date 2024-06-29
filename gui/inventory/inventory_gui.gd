@@ -12,7 +12,6 @@ func _ready():
 
 func update():
 	for i in range(min(inventory.items.size(), slots.size())):
-		print(inventory.items[i])
 		slots[i].update(inventory.items[i])
 
 func open() -> void:
