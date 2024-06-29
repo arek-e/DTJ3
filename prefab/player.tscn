@@ -1,23 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://prthhauodu7w"]
+[gd_scene load_steps=7 format=3 uid="uid://prthhauodu7w"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_xukyc"]
 [ext_resource type="Texture2D" uid="uid://8ogsi608ofrv" path="res://assets/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="2_oenuh"]
 [ext_resource type="Resource" uid="uid://bickpds32e7x3" path="res://gui/inventory/items/player_inventory.tres" id="2_spd0c"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_dv7np"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_e0jv4"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_upevq"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1dx7g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m8wsp"]
 atlas = ExtResource("2_oenuh")
 region = Rect2(32, 32, 128, 128)
 
-[sub_resource type="Resource" id="Resource_goi3v"]
-script = ExtResource("5_upevq")
-duration = 1.0
-transition = 0
-ease = 2
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1dx7g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m0fv8"]
 radius = 9.0
@@ -27,10 +18,6 @@ height = 20.0
 script = ExtResource("1_xukyc")
 inventory = ExtResource("2_spd0c")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("CapsuleShape2D_1dx7g")
-
 [node name="Character" type="Node2D" parent="."]
 
 [node name="CharacterSprite" type="Sprite2D" parent="Character"]
@@ -39,29 +26,20 @@ texture = SubResource("AtlasTexture_m8wsp")
 
 [node name="TileMovementDelayTimer" type="Timer" parent="Character"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1.4013e-45, 0)
-zoom = Vector2(2, 2)
-
-[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
-script = ExtResource("3_dv7np")
-
-[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(-1.4013e-45, 0)
-script = ExtResource("4_e0jv4")
-follow_mode = 5
-follow_target = NodePath("../Character/CharacterSprite")
-zoom = Vector2(2, 2)
-tween_resource = SubResource("Resource_goi3v")
-follow_damping = true
-follow_damping_value = Vector2(0.25, 0.25)
-dead_zone_width = 0.15
-dead_zone_height = 0.15
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CapsuleShape2D_1dx7g")
 
 [node name="hurtBox" type="Area2D" parent="."]
+position = Vector2(1, 0)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtBox"]
 shape = SubResource("CapsuleShape2D_m0fv8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 1.0
 
 [connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
