@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://prthhauodu7w"]
+[gd_scene load_steps=11 format=3 uid="uid://prthhauodu7w"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_xukyc"]
 [ext_resource type="Texture2D" uid="uid://8ogsi608ofrv" path="res://assets/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="2_oenuh"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_dv7np"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_e0jv4"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_upevq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1dx7g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m8wsp"]
 atlas = ExtResource("2_oenuh")
@@ -17,11 +19,19 @@ duration = 1.0
 transition = 0
 ease = 2
 
-[node name="Player" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m0fv8"]
+radius = 9.0
+height = 20.0
 
-[node name="Character" type="Node2D" parent="."]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_xukyc")
 inventory = ExtResource("2_spd0c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CapsuleShape2D_1dx7g")
+
+[node name="Character" type="Node2D" parent="."]
 
 [node name="CharacterSprite" type="Sprite2D" parent="Character"]
 scale = Vector2(0.25, 0.25)
@@ -47,3 +57,11 @@ follow_damping = true
 follow_damping_value = Vector2(0.25, 0.25)
 dead_zone_width = 0.15
 dead_zone_height = 0.15
+
+[node name="hurtBox" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtBox"]
+shape = SubResource("CapsuleShape2D_m0fv8")
+
+[connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]

@@ -1,8 +1,8 @@
 extends Node2D
 
-@onready var tile_map = $"../../TileMap"
-@onready var character_sprite = $CharacterSprite
-@onready var move_timer = $TileMovementDelayTimer
+@onready var tile_map = $"../TileMap"
+@onready var character_sprite =$Character/CharacterSprite
+@onready var move_timer =$Character/TileMovementDelayTimer
 
 @export var inventory: Inventory
 
@@ -73,3 +73,9 @@ func _on_move_timer_timeout():
 	
 func set_move_delay(new_delay):
 	move_timer.wait_time = new_delay
+
+
+func _on_hurt_box_area_entered(area):
+	if area.has_method("collect"):
+		area.collect(inventory)
+		
