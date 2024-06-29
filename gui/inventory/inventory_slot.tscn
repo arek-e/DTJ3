@@ -1,19 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://blhae6yw27vv5"]
 
-[ext_resource type="Script" path="res://gui/inventory/inventory_slot.gd" id="1_p3g12"]
-[ext_resource type="Texture2D" uid="uid://ccpjcv1nbn4g6" path="res://assets/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Slot_01_Available.png" id="2_5mnss"]
-[ext_resource type="FontFile" uid="uid://co3yqr1ntgj0h" path="res://assets/fonts/NormalFont.ttf" id="3_jqcgv"]
+[ext_resource type="Script" path="res://gui/inventory/inventory_slot.gd" id="1_g05sc"]
+[ext_resource type="Texture2D" uid="uid://ccpjcv1nbn4g6" path="res://assets/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Slot_01_Available.png" id="2_4xemq"]
+[ext_resource type="FontFile" uid="uid://co3yqr1ntgj0h" path="res://assets/fonts/NormalFont.ttf" id="3_bsrhm"]
 
 [node name="InventorySlot" type="Button"]
 custom_minimum_size = Vector2(64, 64)
 offset_right = 64.0
 offset_bottom = 64.0
-script = ExtResource("1_p3g12")
+script = ExtResource("1_g05sc")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(2, 2)
-texture = ExtResource("2_5mnss")
+texture = ExtResource("2_4xemq")
 centered = false
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
@@ -46,7 +46,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
-theme_override_fonts/font = ExtResource("3_jqcgv")
+theme_override_fonts/font = ExtResource("3_bsrhm")
 theme_override_font_sizes/font_size = 16
 text = "99"
 horizontal_alignment = 1
