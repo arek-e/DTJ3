@@ -23,4 +23,9 @@ func _process(delta):
 
 func update_timer_label():
 	var seconds = int(time_left) % 60
-	$Time.text = str(seconds)
+	var label = get_node("BackgroundPanel/Time")
+	label.text = str(seconds)
+
+
+func _on_countdown_timer_timeout():
+	print("Placeholder")
