@@ -4095,7 +4095,7 @@ shape = SubResource("RectangleShape2D_ijrs0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CountdownScene" parent="CanvasLayer" instance=ExtResource("4_3772o")]
+[node name="CountdownScene" parent="." instance=ExtResource("4_3772o")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
