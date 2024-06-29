@@ -1,5 +1,5 @@
 extends Control
-
+"res://assets/coffee-mug-1.png"
 func _ready():
 	$MarginContainer/VBoxContainer/StartButton.grab_focus()
 
