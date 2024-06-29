@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cii11hg52lgh0"]
+[gd_scene load_steps=3 format=3 uid="uid://dg3wruowpohig"]
 
 [ext_resource type="Script" path="res://scripts/Countdown.gd" id="1_iuiyf"]
 [ext_resource type="FontFile" uid="uid://co3yqr1ntgj0h" path="res://assets/fonts/NormalFont.ttf" id="2_bdmjm"]
