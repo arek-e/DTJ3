@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7f10mihlby6n"]
+[gd_scene load_steps=6 format=3 uid="uid://b7f10mihlby6n"]
 
+[ext_resource type="PackedScene" uid="uid://gx5dfqri73i4" path="res://gui/Gui.tscn" id="1_3yqnl"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_rvye0"]
 [ext_resource type="Texture2D" uid="uid://8ogsi608ofrv" path="res://assets/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="1_xenj4"]
 
@@ -10,6 +11,8 @@ atlas = ExtResource("1_xenj4")
 region = Rect2(32, 32, 128, 128)
 
 [node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("1_3yqnl")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_0dlbb")
