@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0jx2p0lbmhpg"]
+[gd_scene load_steps=12 format=3 uid="uid://b0jx2p0lbmhpg"]
 
-[ext_resource type="PackedScene" uid="uid://cxavba8knimxo" path="res://gui/hotbar.tscn" id="1_e515s"]
+[ext_resource type="Script" path="res://root.gd" id="1_e08bo"]
+[ext_resource type="PackedScene" uid="uid://cxavba8knimxo" path="res://gui/hotbar/hotbar.tscn" id="1_e515s"]
+[ext_resource type="Script" path="res://scripts/GuiController.gd" id="1_i23xs"]
 [ext_resource type="Texture2D" uid="uid://dn4lp7mapj83w" path="res://assets/Modern_Interiors_Free_v2.2/Modern tiles_Free/Interiors_free/32x32/Room_Builder_free_32x32.png" id="1_y3umo"]
 [ext_resource type="Texture2D" uid="uid://bp20i53y4d48u" path="res://assets/Modern_Interiors_Free_v2.2/Modern tiles_Free/Interiors_free/32x32/Interiors_free_32x32.png" id="2_umihn"]
+[ext_resource type="PackedScene" uid="uid://dticp48l1hrnf" path="res://gui/inventory/inventory_gui.tscn" id="3_18iwa"]
 [ext_resource type="PackedScene" uid="uid://prthhauodu7w" path="res://prefab/player.tscn" id="3_dbs32"]
 [ext_resource type="PackedScene" uid="uid://dg3wruowpohig" path="res://scenes/countdown_scene.tscn" id="4_rrbmx"]
 
@@ -4069,28 +4072,35 @@ sources/3 = SubResource("TileSetAtlasSource_ut25g")
 sources/4 = SubResource("TileSetAtlasSource_2mfie")
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_e08bo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_i23xs")
 
-[node name="Gui" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+[node name="CountdownScene" parent="CanvasLayer" instance=ExtResource("4_rrbmx")]
 
-[node name="Hotbar" parent="CanvasLayer/Gui" instance=ExtResource("1_e515s")]
-layout_mode = 1
+[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("1_e515s")]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -32.0
-offset_right = 176.0
-offset_bottom = 0.0
+offset_left = 10.0
+offset_top = -74.0
+offset_right = 346.0
+offset_bottom = -10.0
 grow_vertical = 0
-metadata/_edit_use_anchors_ = true
+
+[node name="InventoryGui" parent="CanvasLayer" instance=ExtResource("3_18iwa")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_t2brv")
@@ -4104,7 +4114,3 @@ layer_2/name = "Furniture"
 layer_2/tile_data = PackedInt32Array(327686, 4, 10)
 
 [node name="Player" parent="." instance=ExtResource("3_dbs32")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="CountdownScene" parent="CanvasLayer" instance=ExtResource("4_rrbmx")]

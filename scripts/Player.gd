@@ -4,6 +4,8 @@ extends Node2D
 @onready var character_sprite = $CharacterSprite
 @onready var move_timer = $TileMovementDelayTimer
 
+@export var inventory: Inventory
+
 var can_move = true
 var is_moving = false
 var move_delay = 0.2

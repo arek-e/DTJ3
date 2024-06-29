@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://prthhauodu7w"]
+[gd_scene load_steps=9 format=3 uid="uid://prthhauodu7w"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_xukyc"]
 [ext_resource type="Texture2D" uid="uid://8ogsi608ofrv" path="res://assets/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="2_oenuh"]
+[ext_resource type="Resource" uid="uid://bickpds32e7x3" path="res://gui/inventory/items/player_inventory.tres" id="2_spd0c"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_dv7np"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_e0jv4"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_upevq"]
@@ -19,8 +20,8 @@ ease = 2
 [node name="Player" type="Node2D"]
 
 [node name="Character" type="Node2D" parent="."]
-position = Vector2(-1, 0)
 script = ExtResource("1_xukyc")
+inventory = ExtResource("2_spd0c")
 
 [node name="CharacterSprite" type="Sprite2D" parent="Character"]
 scale = Vector2(0.25, 0.25)
@@ -29,14 +30,14 @@ texture = SubResource("AtlasTexture_m8wsp")
 [node name="TileMovementDelayTimer" type="Timer" parent="Character"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1, 0)
+position = Vector2(-1.4013e-45, 0)
 zoom = Vector2(2, 2)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("3_dv7np")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector2(-1, 0)
+position = Vector2(-1.4013e-45, 0)
 script = ExtResource("4_e0jv4")
 follow_mode = 5
 follow_target = NodePath("../Character/CharacterSprite")

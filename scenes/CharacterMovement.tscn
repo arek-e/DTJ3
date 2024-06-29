@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://gx5dfqri73i4" path="res://gui/Gui.tscn" id="1_3yqnl"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_rvye0"]
 [ext_resource type="Texture2D" uid="uid://8ogsi608ofrv" path="res://assets/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="1_xenj4"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_3a7b3"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_swnia"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_umfm4"]
 
@@ -19,7 +18,7 @@ duration = 1.0
 transition = 0
 ease = 2
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("1_3yqnl")]
 
@@ -42,9 +41,6 @@ texture = SubResource("AtlasTexture_lii70")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerObject"]
 position = Vector2(-1, 0)
-
-[node name="PhantomCameraHost" type="Node" parent="PlayerObject/Camera2D"]
-script = ExtResource("3_3a7b3")
 
 [node name="PhantomCamera2D" type="Node2D" parent="PlayerObject" node_paths=PackedStringArray("follow_target")]
 position = Vector2(-1, 0)
