@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cii11hg52lgh0"]
+[gd_scene load_steps=3 format=3 uid="uid://dg3wruowpohig"]
 
 [ext_resource type="Script" path="res://scripts/Countdown.gd" id="1_iuiyf"]
 [ext_resource type="FontFile" uid="uid://co3yqr1ntgj0h" path="res://assets/fonts/NormalFont.ttf" id="2_bdmjm"]
@@ -21,15 +21,10 @@ one_shot = true
 
 [node name="Time" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -491.5
-offset_top = -240.0
-offset_right = 491.5
-offset_bottom = 240.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 46.0
+offset_bottom = 47.0
 theme_override_fonts/font = ExtResource("2_bdmjm")
 theme_override_font_sizes/font_size = 30
 text = "00"
