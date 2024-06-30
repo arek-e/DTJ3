@@ -51,6 +51,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_137ya")
 text = "Back"
 
 [node name="Label2" type="Label" parent="."]
+layout_mode = 0
 offset_left = 193.0
 offset_top = 194.0
 offset_right = 617.0
@@ -67,6 +68,7 @@ scale = Vector2(0.205, 0.205)
 texture = ExtResource("3_ibh7l")
 
 [node name="Label3" type="Label" parent="."]
+layout_mode = 0
 offset_left = 191.0
 offset_top = 297.0
 offset_right = 615.0
