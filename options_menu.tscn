@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsod0gf3qs7og"]
+[gd_scene load_steps=11 format=3 uid="uid://bsod0gf3qs7og"]
 
 [ext_resource type="Script" path="res://scripts/OptionsMenu.gd" id="1_2ku8r"]
+[ext_resource type="FontFile" uid="uid://co3yqr1ntgj0h" path="res://assets/fonts/NormalFont.ttf" id="2_x4wcb"]
+[ext_resource type="Texture2D" uid="uid://bswhrkypy0q1l" path="res://assets/creator_profiles/git_anton.png" id="3_ibh7l"]
+[ext_resource type="Texture2D" uid="uid://d3s7txve2mlnu" path="res://assets/creator_profiles/git_alex.png" id="4_m6gwv"]
+[ext_resource type="Texture2D" uid="uid://day14wbaeqcsy" path="res://assets/creator_profiles/git_david.jpg" id="4_ycq6f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e6x7i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o1bv2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0pfg4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hr0do"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_137ya"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -16,8 +30,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 45.0
+offset_left = 10.0
+offset_top = -41.0
+offset_right = 55.0
+offset_bottom = -1.0
 grow_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -25,6 +41,72 @@ layout_mode = 2
 
 [node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_x4wcb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e6x7i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_o1bv2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0pfg4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hr0do")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_137ya")
 text = "Back"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 193.0
+offset_top = 194.0
+offset_right = 617.0
+offset_bottom = 276.0
+theme_override_fonts/font = ExtResource("2_x4wcb")
+theme_override_font_sizes/font_size = 22
+text = "David     Jepsson
+https://github.com/davjep-arctic"
+vertical_alignment = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(126, 131)
+scale = Vector2(0.205, 0.205)
+texture = ExtResource("3_ibh7l")
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 191.0
+offset_top = 297.0
+offset_right = 615.0
+offset_bottom = 379.0
+theme_override_fonts/font = ExtResource("2_x4wcb")
+theme_override_font_sizes/font_size = 22
+text = "Alexander     Eklund
+https://github.com/arek-e"
+vertical_alignment = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(127, 340)
+scale = Vector2(0.205, 0.205)
+texture = ExtResource("4_m6gwv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 87.0
+offset_right = 620.0
+offset_bottom = 169.0
+theme_override_fonts/font = ExtResource("2_x4wcb")
+theme_override_font_sizes/font_size = 22
+text = "Anton 	    Lindén
+https://github.com/anton-linden"
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(127, 234)
+scale = Vector2(0.205435, 0.205435)
+texture = ExtResource("4_ycq6f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0.114667, 0.18421, 0.410384, 1)
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

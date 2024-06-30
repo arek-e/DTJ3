@@ -43,7 +43,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_iil53")
 text = "Start"
 alignment = 0
 
-[node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_v1n65")
@@ -53,7 +53,8 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_iil53")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_iil53")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_iil53")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_iil53")
-text = "Options"
+text = "Credits
+"
 alignment = 0
 
 [node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -127,5 +128,5 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
