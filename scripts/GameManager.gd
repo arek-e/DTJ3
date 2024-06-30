@@ -37,6 +37,7 @@ func _ready():
 	spawn_player()
 	player.inventory.connect("dropItem", player_drop_item)
 	player.connect("pickupSound", play_player_pickup_sound) # TODO: Stupid, how to make a general thing?
+	player.connect("end_screen", show_end_screen)
 	
 	mixer.connect("mixing_complete", end_game)
 	
@@ -111,6 +112,7 @@ func end_game_victory():
 	
 func end_game_loss():
 	print("Loss!")
+	player.on_death()
 	
 func end_game_time_out():
 	print("End game!")
@@ -142,3 +144,7 @@ func apply_recipe_to_gui():
 
 func play_player_pickup_sound():
 	sound_manager.play_player_pickup_sound()
+	
+	
+func show_end_screen():
+	print("Show endscreen")
