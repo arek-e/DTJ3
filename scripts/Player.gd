@@ -49,6 +49,14 @@ func _process(delta):
 			move(Vector2.RIGHT)
 			start_move_delay()
 		
+		if Input.is_action_pressed("DropItem"):
+			print("Drop Item")
+			
+			# TODO: If standing on item, swap?
+			
+			inventory.drop_current_item()
+			
+		
 func move(direction: Vector2):
 	if (tile_map == null):
 		print("Error: tile_map is null!")
@@ -83,10 +91,8 @@ func _on_move_timer_timeout():
 func set_move_delay(new_delay):
 	move_timer.wait_time = new_delay
 
-
 func _on_hurt_box_area_entered(area):
 	if area.has_method("collect"):
-		print(inventory.get_amount_of_empty_slots())
 		if inventory.get_amount_of_empty_slots() > 0:
 			area.collect(inventory)
 		
