@@ -1,8 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://prthhauodu7w"]
+[gd_scene load_steps=14 format=3 uid="uid://prthhauodu7w"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_xukyc"]
 [ext_resource type="Resource" uid="uid://bickpds32e7x3" path="res://gui/inventory/items/player_inventory.tres" id="2_spd0c"]
 [ext_resource type="Texture2D" uid="uid://cciyv7ba0am3r" path="res://prefab/Nervous-Scientist.png" id="3_minkb"]
+
+[sub_resource type="Gradient" id="Gradient_fdgp7"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ynehq"]
+gradient = SubResource("Gradient_fdgp7")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.504274, 0.525641)
+fill_to = Vector2(0.790598, 0.935897)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1dx7g"]
 
@@ -183,6 +193,13 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "0621bc0de5354d340f5daa42f034bc59"
 
+[node name="PointLight2D" type="PointLight2D" parent="Character/CharacterSprite"]
+color = Color(0.558274, 0.964128, 0.933748, 1)
+energy = 0.7
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_ynehq")
+texture_scale = 2.5
+
 [node name="TileMovementDelayTimer" type="Timer" parent="Character"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -190,6 +207,8 @@ visible = false
 shape = SubResource("CapsuleShape2D_1dx7g")
 
 [node name="player_hurtBox" type="Area2D" parent="."]
+modulate = Color(1.5, 1.5, 1.5, 1)
+self_modulate = Color(1.5, 1.5, 1.5, 1)
 position = Vector2(1, 0)
 collision_mask = 3
 
