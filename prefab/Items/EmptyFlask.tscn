@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://see63udg1hlt"]
+[gd_scene load_steps=4 format=3 uid="uid://see63udg1hlt"]
 
 [ext_resource type="Texture2D" uid="uid://vrbqgh5vk16l" path="res://assets/Items/Flask_empty_item.png" id="1_8duwx"]
 [ext_resource type="PackedScene" uid="uid://b0jx2p0lbmhpg" path="res://root.tscn" id="2_qltk5"]
 
-[node name="EmptyFlask" type="Node2D"]
+[sub_resource type="GDScript" id="GDScript_chuxv"]
+script/source = "extends \"res://collectable/collectable.gd\"
+
+func collect(inventory: Inventory):
+	super(inventory)
+"
+
+[node name="GoldCoin" type="Node2D"]
+script = SubResource("GDScript_chuxv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_8duwx")
