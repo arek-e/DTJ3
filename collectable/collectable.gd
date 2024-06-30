@@ -5,6 +5,3 @@ extends Area2D
 func collect(inventory: Inventory):
 	inventory.insert(itemRes)
 	queue_free()
-
-func test():
-	print("test")

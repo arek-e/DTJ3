@@ -14,6 +14,8 @@ func insert(item: InventoryItem):
 		if !items[i]:
 			if available_inventory_slots != 0:
 				available_inventory_slots -= 1
+				
+			print(item.name)
 			items[i] = item
 			break
 	

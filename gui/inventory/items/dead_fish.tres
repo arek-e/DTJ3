@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_57f2s")
-name = "Test item"
+name = "Dead Fish"
 texture = ExtResource("2_e5qst")
 is_edible = false
 is_craftable = false

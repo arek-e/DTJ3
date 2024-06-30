@@ -30,8 +30,8 @@ func get_all_items() -> Array:
 	
 func spawn_world_items():
 	spawn_item(item_dead_fish, Vector2(100, 200))
-	# spawn_item(item_node_test, Vector2(250, 100))
-	# spawn_item(item_node_test, Vector2(200, 150))
+	spawn_item(item_node_test, Vector2(250, 100))
+	spawn_item(item_half_empty_flask, Vector2(200, 150))
 	# spawn_item(item_node_test, Vector2(250, 250))
 
 func spawn_item(object, position: Vector2) -> void:
