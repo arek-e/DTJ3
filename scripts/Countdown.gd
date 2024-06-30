@@ -2,7 +2,7 @@ extends Control
 
 @export var countdown_time = 60 # Countdown time in seconds
 var time_left
-var stopped = false
+@export var stopped = false
 
 signal out_of_time
 

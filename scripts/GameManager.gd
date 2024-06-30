@@ -102,6 +102,8 @@ func end_game():
 			all_items_correct = false
 			break
 
+	countdown_clock.stopped = true
+	
 	if all_items_correct:
 		end_game_victory()
 	else:
