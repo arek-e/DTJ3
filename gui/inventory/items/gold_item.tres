@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://p2bnhpv8308b"]
+
+[ext_resource type="Script" path="res://gui/inventory/inventory_item.gd" id="1_ylkyf"]
+[ext_resource type="Texture2D" uid="uid://dfjin7eycuj2e" path="res://assets/Tiny Swords (Update 010)/Resources/Resources/G_Idle.png" id="2_86rst"]
+
+[resource]
+script = ExtResource("1_ylkyf")
+name = "Test item"
+texture = ExtResource("2_86rst")

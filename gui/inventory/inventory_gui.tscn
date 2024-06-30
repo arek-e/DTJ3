@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://dticp48l1hrnf"]
+
+[ext_resource type="Texture2D" uid="uid://c4v77fprtgvrv" path="res://assets/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Frame_01_Standard.png" id="1_7pbms"]
+[ext_resource type="Script" path="res://gui/inventory/inventory_gui.gd" id="1_p8mil"]
+[ext_resource type="PackedScene" uid="uid://blhae6yw27vv5" path="res://gui/inventory/inventory_slot.tscn" id="3_sedob"]
+
+[node name="InventoryGui" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 480.0
+size_flags_vertical = 8
+script = ExtResource("1_p8mil")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 391.0
+offset_right = -265.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7pbms")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -34.455
+offset_right = 134.0
+offset_bottom = 69.545
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="InventorySlot0" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
+layout_mode = 2
+
+[node name="InventorySlot1" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
+layout_mode = 2
+
+[connection signal="pressed" from="NinePatchRect/GridContainer/InventorySlot0" to="." method="_on_inventory_slot_0_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/InventorySlot1" to="." method="_on_inventory_slot_1_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/InventorySlot2" to="." method="_on_inventory_slot_2_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/InventorySlot3" to="." method="_on_inventory_slot_3_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/InventorySlot4" to="." method="_on_inventory_slot_4_pressed"]

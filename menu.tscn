@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://d07ohc4ppajj3"]
+
+[ext_resource type="Script" path="res://scripts/Menu.gd" id="1_twn37"]
+[ext_resource type="Texture2D" uid="uid://4fv0736346fh" path="res://assets/coffee-mug-1.png" id="2_2ib8l"]
+[ext_resource type="FontFile" uid="uid://co3yqr1ntgj0h" path="res://assets/fonts/NormalFont.ttf" id="3_v1n65"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iil53"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_twn37")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = -126.0
+offset_right = 112.0
+offset_bottom = -25.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+theme_override_fonts/font = ExtResource("3_v1n65")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_iil53")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_iil53")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_iil53")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_iil53")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iil53")
+text = "Start"
+alignment = 0
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_v1n65")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_iil53")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_iil53")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_iil53")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_iil53")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iil53")
+text = "Options"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../StartButton")
+theme_override_fonts/font = ExtResource("3_v1n65")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxEmpty_iil53")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_iil53")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_iil53")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_iil53")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iil53")
+text = "Quit"
+alignment = 0
+
+[node name="Decorations" type="Node2D" parent="."]
+position = Vector2(600, 446)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(496, 344)
+scale = Vector2(0.378125, 0.378125)
+texture = ExtResource("2_2ib8l")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 644.0
+offset_bottom = 134.0
+theme_override_fonts/font = ExtResource("3_v1n65")
+theme_override_font_sizes/font_size = 64
+text = "Bad coffee"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
