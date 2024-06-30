@@ -2,6 +2,9 @@ extends Control
 
 @export var countdown_time = 60 # Countdown time in seconds
 var time_left
+var stopped = false
+
+signal out_of_time
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,12 +16,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if time_left > 0:
-		time_left -= delta
-		update_timer_label()
-	else:
-		time_left = 0
-		update_timer_label()
+	if !stopped:
+		if time_left > 0:
+			time_left -= delta
+			update_timer_label()
+		else:
+			time_left = 0
+			stopped = true
+			emit_signal("out_of_time")
+			update_timer_label()
 
 
 func update_timer_label():

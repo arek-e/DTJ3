@@ -3,21 +3,23 @@ extends Node
 class_name ItemSpawnManager
 
 var item_node_test = preload("res://collectable/collectables/Coin.tscn")
+var item_dead_fish = preload("res://collectable/collectables/DeadFish.tscn")
 	
 var item_list: Array = []
 
 func _ready():
 	item_list.append(item_node_test)
+	item_list.append(item_dead_fish)
 	
 func spawn_world_items():
-	spawn_item(item_node_test, Vector2(100, 200))
+	spawn_item(item_dead_fish, Vector2(100, 200))
 	# spawn_item(item_node_test, Vector2(250, 100))
 	# spawn_item(item_node_test, Vector2(200, 150))
 	# spawn_item(item_node_test, Vector2(250, 250))
 
 func spawn_item(object, position: Vector2) -> void:
 	# Instance the item scene
-	var item_instance = item_node_test.instantiate()
+	var item_instance = object.instantiate()
 	
 	# Set the position of the item instance
 	item_instance.position = position
