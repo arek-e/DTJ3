@@ -19,6 +19,9 @@ var recipe_gui = null
 var mixer_asset = preload("res://potion mixer/mixer.tscn")
 var mixer = null
 
+var win_asset = preload("res://win.tscn")
+var win = null
+
 var recipe = null
 
 func _ready():
@@ -110,6 +113,8 @@ func end_game():
 		end_game_loss()
 
 func end_game_victory():
+	win = win_asset.instantiate()
+	add_child(win)
 	sound_manager.play_victory()
 	
 func end_game_loss():
