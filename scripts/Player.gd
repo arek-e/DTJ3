@@ -86,5 +86,7 @@ func set_move_delay(new_delay):
 
 func _on_hurt_box_area_entered(area):
 	if area.has_method("collect"):
-		area.collect(inventory)
+		print(inventory.get_amount_of_empty_slots())
+		if inventory.get_amount_of_empty_slots() > 0:
+			area.collect(inventory)
 		

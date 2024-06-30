@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("2_2jeuf")
-items = Array[Resource("res://gui/inventory/inventory_item.gd")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+items = Array[Resource("res://gui/inventory/inventory_item.gd")]([null, null, null, null, null])

@@ -8,8 +8,18 @@ func _input(event: InputEvent) -> void:
 			inventory.close()
 		else:
 			inventory.open()
-	
-	
+	if event.is_action_pressed("FirstElement"):
+		inventory.changeSlot(0)
+	if event.is_action_pressed("SecondElement"):
+		inventory.changeSlot(1)
+	if event.is_action_pressed("ThirdElement"):
+		inventory.changeSlot(2)
+	if event.is_action_pressed("FourthElement"):
+		inventory.changeSlot(3)
+	if event.is_action_pressed("FifthElement"):
+		inventory.changeSlot(4)
+
+
 
 
 # Called when the node enters the scene tree for the first time.
