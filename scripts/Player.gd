@@ -6,12 +6,16 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 @onready var hurtBox = $player_hurtBox
 @export var inventory: Inventory
+@onready var raycast = $RayCast2D
 
 var can_move = true
 var is_dead = false
 var is_moving = false
 var move_delay = 0.2
 var movement_speed = 3
+
+var current_tile_pos: Vector2
+var target_tile_pos: Vector2
 
 signal pickupSound
 signal end_screen
@@ -67,18 +71,16 @@ func move(direction: Vector2):
 		return
 		
 	var current_tile: Vector2i = tile_map.local_to_map(global_position)
-	
+	current_tile_pos = tile_map.map_to_local(current_tile)  # Store the position for visualization
+
 	var target_tile: Vector2i = Vector2i(
 		current_tile.x + direction.x,
 		current_tile.y + direction.y
 	)
-	
-	var tile_data: TileData = tile_map.get_cell_tile_data(0, target_tile)
+	target_tile_pos = tile_map.map_to_local(target_tile)  # Store the position for visualization
 
 	# print_debug(tile_data.get_custom_data("walkable"))
 	
-	#if(tile_data.get_custom_data("walkable") == false):
-	#	return
 	
 	is_moving = true
 		
@@ -86,7 +88,10 @@ func move(direction: Vector2):
 	global_position = tile_map.map_to_local(target_tile)
 	
 	character_sprite.global_position = tile_map.map_to_local(current_tile)
+	queue_redraw()
+	raycast.enabled = false
 	
+
 func on_death():
 	is_dead = true
 	animation_player.play("Death")
@@ -115,4 +120,12 @@ func _on_animation_player_animation_finished(anim_name):
 		character_sprite.texture = load("res://assets/custom/Nervous-Scientist.png")
 		character_sprite.hframes = 1
 		character_sprite.vframes = 1
+
+func _draw():
+	print("Drawing debug circles")
+	if current_tile_pos:
+		draw_circle(to_local(current_tile_pos), 10, Color(0, 1, 0))  # Draw green circle for current tile
+	
+	if target_tile_pos:
+		draw_circle(to_local(target_tile_pos), 10, Color(1, 0, 0))  # Draw red circle for target tile
 	emit_signal("end_screen")
