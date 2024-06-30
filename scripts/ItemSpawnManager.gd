@@ -4,12 +4,29 @@ class_name ItemSpawnManager
 
 var item_node_test = preload("res://collectable/collectables/Coin.tscn")
 var item_dead_fish = preload("res://collectable/collectables/DeadFish.tscn")
-	
+var item_half_empty_flask = preload("res://collectable/collectables/HalfEmptyFlask.tscn")
+
+var item_id_list : Dictionary = {
+	"Dead_fish" : item_dead_fish,
+	"Flask_empty_item" : item_node_test,
+	"Flask_half_full_blue_item" : item_half_empty_flask
+}
+
 var item_list: Array = []
+
+func get_item_with_index(item_index: int):
+	if item_index > len(item_id_list) - 1 || item_index < 0:
+		print("Warning: Trying to get an item outside of item list range.")
+		return
+	return item_id_list.keys()[item_index] # Makes it only return the key.. not great?
 
 func _ready():
 	item_list.append(item_node_test)
 	item_list.append(item_dead_fish)
+	item_list.append(item_half_empty_flask)
+	
+func get_all_items() -> Array:
+	return item_list
 	
 func spawn_world_items():
 	spawn_item(item_dead_fish, Vector2(100, 200))

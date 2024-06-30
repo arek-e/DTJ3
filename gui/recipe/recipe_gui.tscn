@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bl78vwdygtah7"]
+[gd_scene load_steps=3 format=3 uid="uid://bl78vwdygtah7"]
 
 [ext_resource type="FontFile" uid="uid://co3yqr1ntgj0h" path="res://assets/fonts/NormalFont.ttf" id="1_0k4xw"]
+[ext_resource type="Script" path="res://gui/recipe/recipe_gui.gd" id="1_nt38h"]
 
 [node name="RecipeGui" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_nt38h")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -22,6 +24,7 @@ offset_bottom = 85.0
 grow_horizontal = 2
 
 [node name="+3" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 70.0
 offset_top = 6.0
 offset_right = 150.0
@@ -33,6 +36,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="+2" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = 200.0
 offset_top = 3.0
 offset_right = 280.0
@@ -49,6 +53,7 @@ offset_left = 19.0
 offset_top = 18.0
 offset_right = 69.0
 offset_bottom = 68.0
+icon_alignment = 1
 
 [node name="ItemSlot02" type="Button" parent="Panel"]
 layout_mode = 0
@@ -56,6 +61,7 @@ offset_left = 150.0
 offset_top = 18.0
 offset_right = 200.0
 offset_bottom = 68.0
+icon_alignment = 1
 
 [node name="ItemSlot03" type="Button" parent="Panel"]
 layout_mode = 0
@@ -63,3 +69,4 @@ offset_left = 280.0
 offset_top = 18.0
 offset_right = 330.0
 offset_bottom = 68.0
+icon_alignment = 1

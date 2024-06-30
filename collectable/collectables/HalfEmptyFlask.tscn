@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgtb4cymvdbj1"]
+
+[ext_resource type="PackedScene" uid="uid://dtatodwyohj8y" path="res://collectable/collectable.tscn" id="1_25e5l"]
+[ext_resource type="Script" path="res://Coin.gd" id="2_hvkb5"]
+[ext_resource type="Resource" uid="uid://p2bnhpv8308b" path="res://gui/inventory/items/gold_item.tres" id="3_h55mu"]
+[ext_resource type="Texture2D" uid="uid://g20n74e44j74" path="res://assets/Items/Flask_half_full_blue_item.png" id="4_pcxt6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7kyy"]
+radius = 22.6274
+
+[node name="Collectable" instance=ExtResource("1_25e5l")]
+script = ExtResource("2_hvkb5")
+itemRes = ExtResource("3_h55mu")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("4_pcxt6")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_b7kyy")
