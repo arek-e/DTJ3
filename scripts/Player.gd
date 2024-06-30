@@ -14,6 +14,7 @@ var move_delay = 0.2
 var movement_speed = 3
 
 signal pickupSound
+signal end_screen
 
 func _ready():
 	move_timer.connect("timeout", Callable(self, "_on_move_timer_timeout"))
@@ -91,7 +92,6 @@ func on_death():
 	animation_player.play("Death")
 	can_move = false  # Prevent player from moving during death animation
 
-
 func start_move_delay():
 	can_move = false
 	move_timer.start()
@@ -115,3 +115,4 @@ func _on_animation_player_animation_finished(anim_name):
 		character_sprite.texture = load("res://assets/custom/Nervous-Scientist.png")
 		character_sprite.hframes = 1
 		character_sprite.vframes = 1
+	emit_signal("end_screen")
