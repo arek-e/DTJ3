@@ -12,8 +12,6 @@ var is_moving = false
 var move_delay = 0.2
 var movement_speed = 3
 
-
-
 func _ready():
 	move_timer.connect("timeout", Callable(self, "_on_move_timer_timeout"))
 	set_move_delay(move_delay)
@@ -51,7 +49,6 @@ func _process(delta):
 		
 		if Input.is_action_pressed("DropItem"):
 			inventory.drop_current_item()
-			
 		
 func move(direction: Vector2):
 	if (tile_map == null):
