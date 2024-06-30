@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0jx2p0lbmhpg"]
+[gd_scene load_steps=10 format=3 uid="uid://b0jx2p0lbmhpg"]
 
 [ext_resource type="Script" path="res://scripts/GuiController.gd" id="1_i23xs"]
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_o34rd"]
@@ -4100,33 +4100,3 @@ layer_1/name = "Furniture Floor"
 layer_1/tile_data = PackedInt32Array(65538, 458756, 8, 196612, 327684, 28, 262148, 327684, 29, 327684, 327684, 29, 196613, 393220, 28, 262149, 393220, 29, 327685, 393220, 29, 196614, 393220, 28, 262150, 393220, 29, 327686, 393220, 29, 393220, 327684, 536870940, 393221, 393220, 536870940, 393222, 393220, 536870940, 196615, 393220, 28, 262151, 393220, 29, 327687, 393220, 29, 393223, 393220, 536870940, 196616, 327684, 268435484, 262152, 327684, 268435485, 327688, 327684, 268435485, 393224, 327684, 805306396)
 layer_2/name = "Furniture"
 layer_2/tile_data = PackedInt32Array(327686, 4, 10)
-
-[node name="Collectable" parent="." instance=ExtResource("8_508pr")]
-position = Vector2(80, 144)
-collision_mask = 1
-
-[node name="Collectable2" parent="." instance=ExtResource("8_508pr")]
-position = Vector2(80, 205)
-collision_mask = 1
-
-[node name="Collectable3" parent="." instance=ExtResource("8_508pr")]
-position = Vector2(143, 209)
-collision_mask = 1
-
-[node name="Collectable4" parent="." instance=ExtResource("8_508pr")]
-position = Vector2(145, 145)
-collision_mask = 1
-
-[node name="Collectable5" parent="." instance=ExtResource("8_508pr")]
-position = Vector2(174, 108)
-collision_mask = 1
-
-[node name="Collectable6" parent="." instance=ExtResource("8_508pr")]
-position = Vector2(239, 109)
-collision_mask = 1
-
-[node name="Player" parent="." instance=ExtResource("3_dbs32")]
-position = Vector2(80, 80)
-
-[node name="Mixer" parent="." instance=ExtResource("9_f50d6")]
-position = Vector2(304, 80)
