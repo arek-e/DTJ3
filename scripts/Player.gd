@@ -37,7 +37,7 @@ func _physics_process(delta):
 	character_sprite.global_position = character_sprite.global_position.move_toward(global_position, movement_speed)
 
 func _process(delta):
-	if can_move:
+	if (can_move && is_dead == false):
 		if Input.is_action_pressed("up"):
 			animation_player.play("Running-backwards")
 			move(Vector2.UP)
@@ -68,6 +68,10 @@ func _process(delta):
 func move(direction: Vector2):
 	if (tile_map == null):
 		print("Error: tile_map is null!")
+		return
+		
+	if (is_dead == true):
+		print("Dead!")
 		return
 		
 	var current_tile: Vector2i = tile_map.local_to_map(global_position)
@@ -114,7 +118,6 @@ func move(direction: Vector2):
 		raycast.enabled = false
 		return
 	
-	
 	is_moving = true
 		
 	# Move Player
@@ -127,8 +130,9 @@ func move(direction: Vector2):
 
 func on_death():
 	is_dead = true
-	animation_player.play("Death")
 	can_move = false  # Prevent player from moving during death animation
+	animation_player.play("Death")
+
 
 func start_move_delay():
 	can_move = false
@@ -153,12 +157,13 @@ func _on_animation_player_animation_finished(anim_name):
 		character_sprite.texture = load("res://assets/custom/Nervous-Scientist.png")
 		character_sprite.hframes = 1
 		character_sprite.vframes = 1
+		emit_signal("end_screen")
 
-func _draw():
+#func _draw():
 	#print("Drawing debug circles")
 	#if current_tile_pos:
 	#	draw_circle(to_local(current_tile_pos), 10, Color(0, 1, 0))  # Draw green circle for current tile
 	#
 	#if target_tile_pos:
 	#	draw_circle(to_local(target_tile_pos), 10, Color(1, 0, 0))  # Draw red circle for target tile
-	emit_signal("end_screen")
+
