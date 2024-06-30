@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://bw7bh8pwdflqi"]
 
 [ext_resource type="Script" path="res://gui/inventory/inventory_item.gd" id="1_0pue1"]
-[ext_resource type="Texture2D" uid="uid://dybeyrnbonuuy" path="res://assets/Items/poision-fungus.png" id="2_3ehlf"]
+[ext_resource type="Texture2D" uid="uid://c607eqejihah0" path="res://assets/Items/PoisionFungus.png" id="2_3ehlf"]
 
 [resource]
 script = ExtResource("1_0pue1")

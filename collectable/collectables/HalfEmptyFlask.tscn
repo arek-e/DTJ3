@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dtatodwyohj8y" path="res://collectable/collectable.tscn" id="1_25e5l"]
 [ext_resource type="Script" path="res://Coin.gd" id="2_hvkb5"]
 [ext_resource type="Script" path="res://gui/inventory/inventory_item.gd" id="3_2mr1k"]
-[ext_resource type="Texture2D" uid="uid://g20n74e44j74" path="res://assets/Items/Flask_half_full_blue_item.png" id="4_pcxt6"]
+[ext_resource type="Texture2D" uid="uid://bswu4es4qkbq7" path="res://assets/Items/HalfEmptyBlueFlask.png" id="4_pcxt6"]
 
 [sub_resource type="Resource" id="Resource_rvbmp"]
 script = ExtResource("3_2mr1k")
@@ -20,6 +20,7 @@ script = ExtResource("2_hvkb5")
 itemRes = SubResource("Resource_rvbmp")
 
 [node name="Sprite2D" parent="." index="0"]
+z_index = 1
 texture = ExtResource("4_pcxt6")
 
 [node name="CollisionShape2D" parent="." index="1"]
