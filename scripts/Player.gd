@@ -8,6 +8,7 @@ extends Node2D
 @export var inventory: Inventory
 
 var can_move = true
+var is_dead = false
 var is_moving = false
 var move_delay = 0.2
 var movement_speed = 3
@@ -19,11 +20,11 @@ func _ready():
 	set_move_delay(move_delay)
 
 func _physics_process(delta):
-	if is_moving == false:
+	if is_moving == false && is_dead == false:
 		animation_player.queue("Idle")
 		return
 		
-	if global_position == character_sprite.global_position:
+	if global_position == character_sprite.global_position && is_dead == false:
 		animation_player.queue("Idle")
 		is_moving = false
 		return
@@ -72,8 +73,10 @@ func move(direction: Vector2):
 	)
 	
 	var tile_data: TileData = tile_map.get_cell_tile_data(0, target_tile)
+
+	print_debug(tile_data.get_custom_data("walkable"))
 	
-	# if (tile_data.get_custom_data("walkable")) == false:
+	#if(tile_data.get_custom_data("walkable") == false):
 	#	return
 	
 	is_moving = true
@@ -83,6 +86,12 @@ func move(direction: Vector2):
 	
 	character_sprite.global_position = tile_map.map_to_local(current_tile)
 	
+func on_death():
+	is_dead = true
+	animation_player.play("Death")
+	can_move = false  # Prevent player from moving during death animation
+
+
 func start_move_delay():
 	can_move = false
 	move_timer.start()
@@ -99,3 +108,10 @@ func _on_hurt_box_area_entered(area):
 			emit_signal("pickupSound")
 			area.collect(inventory)
 		
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "Death":
+		character_sprite.texture = load("res://assets/custom/Nervous-Scientist.png")
+		character_sprite.hframes = 1
+		character_sprite.vframes = 1
