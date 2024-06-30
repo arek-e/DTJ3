@@ -19,6 +19,8 @@ func _ready():
 		print("ERROR: SpawnManager node not found!")
 		
 	spawn_player()
+	player.inventory.connect("dropItem", player_drop_item)
+	
 	spawn_countdown_clock()
 
 func create_spawn_manager() -> void:
@@ -35,3 +37,7 @@ func spawn_countdown_clock():
 	countdown_clock = countdown_asset.instantiate()
 	gui.add_child(countdown_clock)
 	
+func player_drop_item():
+	print("Player attempted to drop item")
+	spawn_manager.spawn_item_from_item_list(0, player.position) # TODO: Must pass a actual item.
+	player.inventory.current_item_index
