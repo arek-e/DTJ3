@@ -31,7 +31,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 
 [node name="Item" type="Sprite2D" parent="CenterContainer/Panel"]
-position = Vector2(-4, -11)
+scale = Vector2(1.9, 1.9)
 
 [node name="Label" type="Label" parent="CenterContainer/Panel"]
 visible = false
