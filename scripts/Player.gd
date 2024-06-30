@@ -155,10 +155,10 @@ func _on_animation_player_animation_finished(anim_name):
 		character_sprite.vframes = 1
 
 func _draw():
-	print("Drawing debug circles")
-	if current_tile_pos:
-		draw_circle(to_local(current_tile_pos), 10, Color(0, 1, 0))  # Draw green circle for current tile
-	
-	if target_tile_pos:
-		draw_circle(to_local(target_tile_pos), 10, Color(1, 0, 0))  # Draw red circle for target tile
+	#print("Drawing debug circles")
+	#if current_tile_pos:
+	#	draw_circle(to_local(current_tile_pos), 10, Color(0, 1, 0))  # Draw green circle for current tile
+	#
+	#if target_tile_pos:
+	#	draw_circle(to_local(target_tile_pos), 10, Color(1, 0, 0))  # Draw red circle for target tile
 	emit_signal("end_screen")
