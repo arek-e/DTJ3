@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://drjrbm7liyh3e"]
+
+[ext_resource type="PackedScene" uid="uid://dtatodwyohj8y" path="res://collectable/collectable.tscn" id="1_n45kc"]
+[ext_resource type="Script" path="res://Coin.gd" id="2_pxcvk"]
+[ext_resource type="Script" path="res://gui/inventory/inventory_item.gd" id="3_wmboj"]
+[ext_resource type="Texture2D" uid="uid://dr1cujurwitas" path="res://assets/Items/desert-fungus.png" id="5_qli81"]
+
+[sub_resource type="Resource" id="Resource_rrb1b"]
+script = ExtResource("3_wmboj")
+name = "Desert Fungus"
+texture = ExtResource("5_qli81")
+is_edible = false
+is_craftable = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7kyy"]
+radius = 22.6274
+
+[node name="Collectable" instance=ExtResource("1_n45kc")]
+script = ExtResource("2_pxcvk")
+itemRes = SubResource("Resource_rrb1b")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_qli81")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_b7kyy")

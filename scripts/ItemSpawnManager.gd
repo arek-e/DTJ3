@@ -5,11 +5,18 @@ class_name ItemSpawnManager
 var item_node_test = preload("res://collectable/collectables/Coin.tscn")
 var item_dead_fish = preload("res://collectable/collectables/DeadFish.tscn")
 var item_half_empty_flask = preload("res://collectable/collectables/HalfEmptyFlask.tscn")
+var item_death_fungus = preload("res://collectable/collectables/DeathFungus.tscn")
+var item_desert_fungus = preload("res://collectable/collectables/DesertFungus.tscn")
+var item_posion_fungus = preload("res://collectable/collectables/PoisionFungus.tscn")
+
 
 var item_id_list : Dictionary = {
 	"Dead_fish" : item_dead_fish,
 	"Flask_empty_item" : item_node_test,
-	"Flask_half_full_blue_item" : item_half_empty_flask
+	"Flask_half_full_blue_item" : item_half_empty_flask,
+	"Death_fungus" : item_death_fungus,
+	"Desert_fungus" : item_desert_fungus,
+	"Poison_fungus" : item_posion_fungus
 }
 
 var item_list: Array = []
@@ -24,6 +31,9 @@ func _ready():
 	item_list.append(item_node_test)
 	item_list.append(item_dead_fish)
 	item_list.append(item_half_empty_flask)
+	item_list.append(item_death_fungus)
+	item_list.append(item_desert_fungus)
+	item_list.append(item_posion_fungus)
 	
 func get_all_items() -> Array:
 	return item_list
@@ -32,7 +42,9 @@ func spawn_world_items():
 	spawn_item(item_dead_fish, Vector2(100, 200))
 	spawn_item(item_node_test, Vector2(250, 100))
 	spawn_item(item_half_empty_flask, Vector2(200, 150))
-	# spawn_item(item_node_test, Vector2(250, 250))
+	spawn_item(item_death_fungus, Vector2(250, 250))
+	spawn_item(item_posion_fungus, Vector2(300, 250))
+	spawn_item(item_desert_fungus, Vector2(250, 300))
 
 func spawn_item(object, position: Vector2) -> void:
 	# Instance the item scene
