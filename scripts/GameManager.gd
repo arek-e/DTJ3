@@ -145,6 +145,5 @@ func apply_recipe_to_gui():
 func play_player_pickup_sound():
 	sound_manager.play_player_pickup_sound()
 	
-	
 func show_end_screen():
-	print("Show endscreen")
+	get_tree().change_scene_to_file("res://game_over.tscn")
