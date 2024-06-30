@@ -10,6 +10,8 @@ var player_spawn_position = Vector2(100, 100)
 var countdown_asset = preload("res://scenes/countdown_scene.tscn")
 var countdown_clock = null
 
+var shake_time: float = 2
+
 func _ready():
 	create_spawn_manager()
 	
@@ -20,6 +22,12 @@ func _ready():
 		
 	spawn_player()
 	spawn_countdown_clock()
+	
+func _process(delta):
+	var timer: Timer = countdown_clock.get_node("CountdownTimer")
+	if timer.get_time_left() < 20:
+		trigger_camera_shake(delta)
+	
 
 func create_spawn_manager() -> void:
 	spawn_manager = item_spawn_manager_asset.instantiate()
@@ -35,3 +43,9 @@ func spawn_countdown_clock():
 	countdown_clock = countdown_asset.instantiate()
 	gui.add_child(countdown_clock)
 	
+
+func trigger_camera_shake(delta):
+	var camera: PlayerCam = player.get_node("PlayerCam")
+	if camera:
+		if shake_time > 0: 
+			shake_time = camera.apply_shake(shake_time, delta)

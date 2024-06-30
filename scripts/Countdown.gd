@@ -1,5 +1,8 @@
 extends Control
 
+@onready var player_asset = preload("res://prefab/player.tscn")
+@onready var player = null
+
 @export var countdown_time = 60 # Countdown time in seconds
 var time_left
 

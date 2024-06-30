@@ -53,6 +53,8 @@ func _process(delta):
 			inventory.drop_current_item()
 			
 		
+	
+
 func move(direction: Vector2):
 	if (tile_map == null):
 		print("Error: tile_map is null!")
