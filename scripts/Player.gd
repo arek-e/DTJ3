@@ -57,7 +57,7 @@ func _process(delta):
 				if(area.name == "Mixer"):
 					return
 			
-			inventory.drop_current_item()
+			# inventory.drop_current_item()
 			
 func move(direction: Vector2):
 	if (tile_map == null):
