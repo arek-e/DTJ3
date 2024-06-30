@@ -22,7 +22,7 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 19.0
 offset_top = -126.0
-offset_right = 112.0
+offset_right = 136.0
 offset_bottom = -25.0
 grow_vertical = 0
 
@@ -71,6 +71,7 @@ alignment = 0
 position = Vector2(600, 446)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(496, 344)
 scale = Vector2(0.378125, 0.378125)
 texture = ExtResource("2_2ib8l")
@@ -84,6 +85,43 @@ theme_override_font_sizes/font_size = 64
 text = "Bad coffee"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.735
+offset_left = 2.0
+offset_top = 99.0
+offset_bottom = 0.199993
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_top = 0.244
+anchor_right = 0.97
+anchor_bottom = 0.692
+offset_left = -1.29
+offset_top = -61.976
+offset_right = 13.35
+offset_bottom = 78.232
+theme_override_fonts/normal_font = ExtResource("3_v1n65")
+theme_override_font_sizes/normal_font_size = 20
+text = "While  working  on  your  latest  evil  project,  you  took  the  wrong  coffee  cup, and  drank  the  posion  meant  for  your  arch  enemy,  dr  Not-So-Evilsson. 
+To  survive,  you  have  60  seconds  to  find  the  ingredients  and  mix  the  antidote. 
+
+If  you  fail,  you  die..."
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0.114667, 0.18421, 0.410384, 1)
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

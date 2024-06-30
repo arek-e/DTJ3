@@ -18,6 +18,7 @@ var current_tile_pos: Vector2
 var target_tile_pos: Vector2
 
 signal pickupSound
+signal end_screen
 
 func _ready():
 	move_timer.connect("timeout", Callable(self, "_on_move_timer_timeout"))
@@ -129,7 +130,6 @@ func on_death():
 	animation_player.play("Death")
 	can_move = false  # Prevent player from moving during death animation
 
-
 func start_move_delay():
 	can_move = false
 	move_timer.start()
@@ -161,3 +161,4 @@ func _draw():
 	
 	if target_tile_pos:
 		draw_circle(to_local(target_tile_pos), 10, Color(1, 0, 0))  # Draw red circle for target tile
+	emit_signal("end_screen")

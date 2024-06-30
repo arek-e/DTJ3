@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bp20i53y4d48u" path="res://assets/Modern_Interiors_Free_v2.2/Modern tiles_Free/Interiors_free/32x32/Interiors_free_32x32.png" id="2_umihn"]
 [ext_resource type="PackedScene" uid="uid://dticp48l1hrnf" path="res://gui/inventory/inventory_gui.tscn" id="3_18iwa"]
 [ext_resource type="Texture2D" uid="uid://cq5peo8bbcct4" path="res://assets/Tech Dungeon Roguelite - Asset Pack (DEMO)/tileset x2.png" id="5_els7v"]
-[ext_resource type="PackedScene" uid="uid://drhysyfstl3bk" path="res://potion mixer/mixer.tscn" id="7_n7p4x"]
+[ext_resource type="Texture2D" uid="uid://bfliyixjm4s61" path="res://assets/Items/spawn_point_icons/mixer_spawn_point.png" id="7_btk5e"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_npmvr"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, -1, -16, -1.25)
@@ -7336,9 +7336,6 @@ layer_3/tile_data = PackedInt32Array()
 layer_4/name = "Inner walls"
 layer_4/tile_data = PackedInt32Array(327682, 1572865, 14, 393218, 1572865, 15, 327683, 1638401, 14, 393219, 1638401, 15, 327684, 1703937, 14, 393220, 1703937, 15, 393221, 1769473, 15, 393231, 1572865, 15, 196624, 1245185, 8, 262160, 1245185, 5, 327696, 1638401, 14, 393232, 1638401, 15, 327697, 1703937, 14, 393233, 1703937, 15, 327698, 1769473, 14, 393234, 1769473, 15, 262152, 1703937, 7, 196617, 1769473, 6, 262153, 1769473, 7, 262154, 393217, 1, 196619, 1900545, 6, 262155, 1900545, 7, 327690, 393217, 2, 393226, 393217, 3, 327695, 1572865, 14, 196616, 1703937, 6, 196618, 393217, 0, 196611, 1245185, 8, 262147, 1245185, 5, 327685, 1769473, 14)
 
-[node name="Mixer" parent="." instance=ExtResource("7_n7p4x")]
-position = Vector2(16, 64)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_syxgu")
 
@@ -7402,3 +7399,12 @@ texture_scale = 2.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.673919, 0.820313, 0.9877, 1)
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="MixerSpawnPoint" type="Node2D" parent="SpawnPoints"]
+position = Vector2(15, 99)
+
+[node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/MixerSpawnPoint"]
+visible = false
+texture = ExtResource("7_btk5e")

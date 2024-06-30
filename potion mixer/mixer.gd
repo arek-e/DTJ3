@@ -9,12 +9,13 @@ extends Node2D
 
 var player_inventory: Inventory
 var is_player_in_area = false
-var collected_items: Array[InventoryItem]
+@export var collected_items: Array[InventoryItem]
+
+signal mixing_complete
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	tooltip.hide()
-	
 
 func _process(delta):
 	if is_player_in_area:
@@ -23,7 +24,6 @@ func _process(delta):
 			drop_item()
 	else:
 		tooltip.hide()
-
 
 # Function to handle item dropping logic
 func drop_item():
@@ -36,12 +36,13 @@ func drop_item():
 		else:
 			print("No item was dropped")
 
-
 func add_item_to_container(item: InventoryItem):
+	if len(collected_items) == 3:
+		emit_signal("mixing_complete")
+	print(item.name)
 	var mix_slot = mix_slot_scene.instantiate() as Control
 	mix_slot.setup(item)
 	recipe_container.add_child(mix_slot)
-
 
 func _on_area_entered(area: Area2D):
 	print_debug(area.name)
