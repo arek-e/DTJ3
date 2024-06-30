@@ -66,6 +66,7 @@ func spawn_countdown_clock() -> void:
 	
 func spawn_mixer():
 	mixer = mixer_asset.instantiate()
+	mixer.position = $SpawnPoints/MixerSpawnPoint.position
 	add_child(mixer)
 	
 func spawn_recipe_gui() -> void:
