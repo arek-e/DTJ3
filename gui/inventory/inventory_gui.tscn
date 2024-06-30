@@ -7,21 +7,18 @@
 [node name="InventoryGui" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 640.0
+offset_bottom = 480.0
+size_flags_vertical = 8
 script = ExtResource("1_p8mil")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -178.5
-offset_top = -110.0
-offset_right = 178.5
-offset_bottom = 110.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 391.0
+offset_right = -265.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_7pbms")
@@ -39,15 +36,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -52.0
-offset_top = -52.0
-offset_right = 52.0
-offset_bottom = 52.0
+offset_left = -134.0
+offset_top = -34.455
+offset_right = 134.0
+offset_bottom = 69.545
 grow_horizontal = 2
 grow_vertical = 2
 columns = 5
 
-[node name="InventorySlot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
+[node name="InventorySlot0" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
+layout_mode = 2
+
+[node name="InventorySlot1" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
 layout_mode = 2
 
 [node name="InventorySlot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
@@ -59,35 +59,8 @@ layout_mode = 2
 [node name="InventorySlot4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
 layout_mode = 2
 
-[node name="InventorySlot5" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
-layout_mode = 2
-
-[node name="InventorySlot6" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
-layout_mode = 2
-
-[node name="InventorySlot7" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
-layout_mode = 2
-
-[node name="InventorySlot8" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
-layout_mode = 2
-
-[node name="InventorySlot9" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
-layout_mode = 2
-
-[node name="InventorySlot10" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
-layout_mode = 2
-
-[node name="InventorySlot11" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
-layout_mode = 2
-
-[node name="InventorySlot12" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
-layout_mode = 2
-
-[node name="InventorySlot13" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
-layout_mode = 2
-
-[node name="InventorySlot14" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
-layout_mode = 2
-
-[node name="InventorySlot15" parent="NinePatchRect/GridContainer" instance=ExtResource("3_sedob")]
-layout_mode = 2
+[connection signal="pressed" from="NinePatchRect/GridContainer/InventorySlot0" to="." method="_on_inventory_slot_0_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/InventorySlot1" to="." method="_on_inventory_slot_1_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/InventorySlot2" to="." method="_on_inventory_slot_2_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/InventorySlot3" to="." method="_on_inventory_slot_3_pressed"]
+[connection signal="pressed" from="NinePatchRect/GridContainer/InventorySlot4" to="." method="_on_inventory_slot_4_pressed"]

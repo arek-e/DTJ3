@@ -7,9 +7,12 @@ signal closed
 @onready var inventory: Inventory = preload("res://gui/inventory/items/player_inventory.tres")
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
 
+var active_slot_index = 0
+
 func _ready():
 	inventory.updated.connect(update)
 	update()
+	changeSlot(0)
 
 func update():
 	for i in range(min(inventory.items.size(), slots.size())):
@@ -21,7 +24,38 @@ func open() -> void:
 	opened.emit()
 	
 func close() -> void:
-	visible = false
-	is_open = false
+	visible = true
+	is_open = true
 	closed.emit()
+
+func changeSlot(slot_index: int) -> void:
+	active_slot_index = slot_index
 	
+	# Ugly way, I hate it :D
+	if slot_index == 0:
+		$NinePatchRect/GridContainer/InventorySlot0.grab_focus()
+	elif slot_index == 1:
+		$NinePatchRect/GridContainer/InventorySlot1.grab_focus()
+	elif slot_index == 2:
+		$NinePatchRect/GridContainer/InventorySlot2.grab_focus()
+	elif slot_index == 3:
+		$NinePatchRect/GridContainer/InventorySlot3.grab_focus()
+	elif slot_index == 4:
+		$NinePatchRect/GridContainer/InventorySlot4.grab_focus()
+
+
+func _on_inventory_slot_0_pressed():
+	changeSlot(0)
+
+func _on_inventory_slot_1_pressed():
+	changeSlot(1)
+
+func _on_inventory_slot_2_pressed():
+	changeSlot(2)
+
+func _on_inventory_slot_3_pressed():
+	changeSlot(3)
+
+func _on_inventory_slot_4_pressed():
+	changeSlot(4)
+
