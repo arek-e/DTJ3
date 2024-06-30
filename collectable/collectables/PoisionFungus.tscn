@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://dypftrq2y2pji"]
+
+[ext_resource type="PackedScene" uid="uid://dtatodwyohj8y" path="res://collectable/collectable.tscn" id="1_17b7u"]
+[ext_resource type="Script" path="res://Coin.gd" id="2_yc1ov"]
+[ext_resource type="Script" path="res://gui/inventory/inventory_item.gd" id="3_prn02"]
+[ext_resource type="Texture2D" uid="uid://dybeyrnbonuuy" path="res://assets/Items/poision-fungus.png" id="4_cse3t"]
+
+[sub_resource type="Resource" id="Resource_lr6jl"]
+script = ExtResource("3_prn02")
+name = "Poision Fungus"
+texture = ExtResource("4_cse3t")
+is_edible = false
+is_craftable = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7kyy"]
+radius = 22.6274
+
+[node name="Collectable" instance=ExtResource("1_17b7u")]
+script = ExtResource("2_yc1ov")
+itemRes = SubResource("Resource_lr6jl")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_cse3t")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_b7kyy")

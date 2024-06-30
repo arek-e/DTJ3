@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://mwy16ta6eobc"]
+
+[ext_resource type="PackedScene" uid="uid://dtatodwyohj8y" path="res://collectable/collectable.tscn" id="1_5u7np"]
+[ext_resource type="Script" path="res://Coin.gd" id="2_3xsuc"]
+[ext_resource type="Script" path="res://gui/inventory/inventory_item.gd" id="3_666no"]
+[ext_resource type="Texture2D" uid="uid://bex54o55epatw" path="res://assets/Items/fungus.png" id="5_rlo3a"]
+
+[sub_resource type="Resource" id="Resource_5otey"]
+script = ExtResource("3_666no")
+name = "DeathFungus"
+texture = ExtResource("5_rlo3a")
+is_edible = false
+is_craftable = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7kyy"]
+radius = 22.6274
+
+[node name="Collectable" instance=ExtResource("1_5u7np")]
+script = ExtResource("2_3xsuc")
+itemRes = SubResource("Resource_5otey")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_rlo3a")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_b7kyy")
