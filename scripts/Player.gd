@@ -79,7 +79,40 @@ func move(direction: Vector2):
 	)
 	target_tile_pos = tile_map.map_to_local(target_tile)  # Store the position for visualization
 
-	# print_debug(tile_data.get_custom_data("walkable"))
+
+	var direction_vector: Vector2 = target_tile_pos - current_tile_pos
+	var shortened_vector: Vector2 = direction_vector * 0.9
+	var shortened_target_pos: Vector2 = current_tile_pos + shortened_vector
+
+	# Calculate the position slightly behind the current position
+	var backward_adjustment: Vector2 = direction_vector * (-0.2)  # Adjust this value to control how much to move back
+	var adjusted_current_pos: Vector2 = current_tile_pos + backward_adjustment
+
+	# Raycast to check for obstacles
+	raycast.enabled = true
+	raycast.global_position = adjusted_current_pos
+	raycast.target_position = to_local(shortened_target_pos)
+	
+	# Get the current transform
+	if direction.y > 0 && direction.y < 0:
+		var transform = raycast.transform
+		var move_amount = 8.0  # Adjust this value as needed
+
+		if direction.y > 0:
+			transform.origin.y -= move_amount
+		elif direction.y < 0:
+			transform.origin.y += move_amount
+
+		print_debug(transform.origin)
+		print_debug(direction)
+		raycast.transform = transform
+	
+	raycast.force_raycast_update()  # Force an immediate update to check for collisions
+
+	if raycast.is_colliding():
+		print("Obstacle detected! Move blocked.")
+		raycast.enabled = false
+		return
 	
 	
 	is_moving = true
