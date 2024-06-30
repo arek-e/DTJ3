@@ -50,10 +50,6 @@ func _process(delta):
 			start_move_delay()
 		
 		if Input.is_action_pressed("DropItem"):
-			print("Drop Item")
-			
-			# TODO: If standing on item, swap?
-			
 			inventory.drop_current_item()
 			
 		
