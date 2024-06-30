@@ -13,17 +13,20 @@ var is_player_in_area = false
 
 signal mixing_complete
 
+@export var allowed_to_drop: bool = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	tooltip.hide()
 
 func _process(delta):
-	if is_player_in_area:
-		tooltip.show()
-		if Input.is_action_just_pressed("DropItem"):
-			drop_item()
-	else:
-		tooltip.hide()
+	if allowed_to_drop:
+		if is_player_in_area:
+			tooltip.show()
+			if Input.is_action_just_pressed("DropItem"):
+				drop_item()
+		else:
+			tooltip.hide()
 
 # Function to handle item dropping logic
 func drop_item():
@@ -38,6 +41,7 @@ func drop_item():
 
 func add_item_to_container(item: InventoryItem):
 	if len(collected_items) == 3:
+		allowed_to_drop = false
 		emit_signal("mixing_complete")
 	print(item.name)
 	var mix_slot = mix_slot_scene.instantiate() as Control
