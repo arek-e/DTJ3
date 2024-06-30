@@ -49,7 +49,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_vn0i0"]
 length = 0.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -77,7 +76,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_tg2kx"]
 length = 0.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -105,7 +103,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_gytwq"]
 length = 0.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -133,7 +130,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_ruyft"]
 length = 0.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -207,6 +203,7 @@ texture_filter = 1
 texture = ExtResource("3_minkb")
 hframes = 7
 vframes = 7
+frame = 20
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
