@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://0v11ebv0g8aq"]
+
+[ext_resource type="Script" path="res://gui/inventory/inventory_item.gd" id="1_x0i05"]
+[ext_resource type="Texture2D" uid="uid://buiqgh01d0u7y" path="res://assets/Items/Dead_fish.png" id="2_dl5wy"]
+
+[resource]
+script = ExtResource("1_x0i05")
+name = "DeadFish"
+texture = ExtResource("2_dl5wy")
+is_edible = false
+is_craftable = false
