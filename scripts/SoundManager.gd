@@ -15,3 +15,5 @@ func play_victory():
 func play_background_noise():
 	$"AP-Machine-background-noise".play()
 	
+func play_death_scream():
+	$"AP-Deathscream".play()

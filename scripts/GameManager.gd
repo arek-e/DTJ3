@@ -108,16 +108,13 @@ func end_game():
 		end_game_loss()
 
 func end_game_victory():
-	print("Victory!")
 	sound_manager.play_victory()
 	
 func end_game_loss():
-	print("Loss!")
 	player.on_death()
+	sound_manager.play_death_scream()
 	
 func end_game_time_out():
-	print("End game!")
-	print("Time ran out!")
 	end_game_loss()
 
 func generate_new_recipe() -> Array:
