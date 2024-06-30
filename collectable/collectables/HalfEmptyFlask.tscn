@@ -7,7 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_rvbmp"]
 script = ExtResource("3_2mr1k")
-name = "HalfEmptyFlask"
+name = "HalfEmptyBlueFlask"
 texture = ExtResource("4_pcxt6")
 is_edible = false
 is_craftable = false

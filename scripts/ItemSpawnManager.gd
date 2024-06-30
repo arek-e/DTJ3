@@ -2,7 +2,6 @@ extends Node
 
 class_name ItemSpawnManager
 
-var item_node_test = preload("res://collectable/collectables/Coin.tscn")
 var item_dead_fish = preload("res://collectable/collectables/DeadFish.tscn")
 var item_half_empty_flask = preload("res://collectable/collectables/HalfEmptyFlask.tscn")
 var item_death_fungus = preload("res://collectable/collectables/DeathFungus.tscn")
@@ -11,12 +10,11 @@ var item_posion_fungus = preload("res://collectable/collectables/PoisionFungus.t
 
 
 var item_id_list : Dictionary = {
-	"Dead_fish" : item_dead_fish,
-	"Flask_empty_item" : item_node_test,
-	"Flask_half_full_blue_item" : item_half_empty_flask,
-	"Death_fungus" : item_death_fungus,
-	"Desert_fungus" : item_desert_fungus,
-	"Poison_fungus" : item_posion_fungus
+	"DeadFish" : item_dead_fish,
+	"HalfEmptyBlueFlask" : item_half_empty_flask,
+	"DeathFungus" : item_death_fungus,
+	"DesertFungus" : item_desert_fungus,
+	"PoisionFungus" : item_posion_fungus
 }
 
 var item_list: Array = []
@@ -28,7 +26,6 @@ func get_item_with_index(item_index: int):
 	return item_id_list.keys()[item_index] # Makes it only return the key.. not great?
 
 func _ready():
-	item_list.append(item_node_test)
 	item_list.append(item_dead_fish)
 	item_list.append(item_half_empty_flask)
 	item_list.append(item_death_fungus)
@@ -40,7 +37,6 @@ func get_all_items() -> Array:
 	
 func spawn_world_items():
 	spawn_item(item_dead_fish, Vector2(100, 200))
-	spawn_item(item_node_test, Vector2(250, 100))
 	spawn_item(item_half_empty_flask, Vector2(200, 150))
 	spawn_item(item_death_fungus, Vector2(250, 250))
 	spawn_item(item_posion_fungus, Vector2(300, 250))
