@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4bq4206y7gay"]
+
+[ext_resource type="Script" path="res://potion mixer/mixer_slot_item.gd" id="1_ujmcw"]
+[ext_resource type="Texture2D" uid="uid://dfjin7eycuj2e" path="res://assets/Tiny Swords (Update 010)/Resources/Resources/G_Idle.png" id="2_hltll"]
+
+[node name="MixerSlotItem" type="Control"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_ujmcw")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/Panel"]
+texture_filter = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_hltll")
+offset = Vector2(28, 16)

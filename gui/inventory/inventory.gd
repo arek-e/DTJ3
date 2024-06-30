@@ -21,10 +21,14 @@ func insert(item: InventoryItem):
 func get_amount_of_empty_slots() -> int:
 	return available_inventory_slots
 
-func drop_current_item() -> void:
+func drop_current_item() -> InventoryItem:
 	if items[current_item_index] != null:
 		available_inventory_slots += 1
+		var item: InventoryItem = items[current_item_index]
 		clear_item_from_array(current_item_index)
+		return item
+	else:
+		return null
 
 func clear_item_from_array(item_index: int):
 	items[item_index] = null

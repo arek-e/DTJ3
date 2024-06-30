@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0jx2p0lbmhpg"]
+[gd_scene load_steps=13 format=3 uid="uid://b0jx2p0lbmhpg"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_e08bo"]
 [ext_resource type="Script" path="res://scripts/GuiController.gd" id="1_i23xs"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://prthhauodu7w" path="res://prefab/player.tscn" id="3_dbs32"]
 [ext_resource type="PackedScene" uid="uid://dg3wruowpohig" path="res://scenes/countdown_scene.tscn" id="4_rrbmx"]
 [ext_resource type="PackedScene" uid="uid://cob4nq3n8fvmj" path="res://collectable/collectables/Coin.tscn" id="8_508pr"]
+[ext_resource type="PackedScene" uid="uid://drhysyfstl3bk" path="res://potion mixer/mixer.tscn" id="9_f50d6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ut25g"]
 texture = ExtResource("1_y3umo")
@@ -4105,21 +4106,30 @@ layer_2/tile_data = PackedInt32Array(327686, 4, 10)
 
 [node name="Collectable" parent="." instance=ExtResource("8_508pr")]
 position = Vector2(80, 144)
+collision_mask = 1
 
 [node name="Collectable2" parent="." instance=ExtResource("8_508pr")]
 position = Vector2(80, 205)
+collision_mask = 1
 
 [node name="Collectable3" parent="." instance=ExtResource("8_508pr")]
 position = Vector2(143, 209)
+collision_mask = 1
 
 [node name="Collectable4" parent="." instance=ExtResource("8_508pr")]
 position = Vector2(145, 145)
+collision_mask = 1
 
 [node name="Collectable5" parent="." instance=ExtResource("8_508pr")]
 position = Vector2(174, 108)
+collision_mask = 1
 
 [node name="Collectable6" parent="." instance=ExtResource("8_508pr")]
 position = Vector2(239, 109)
+collision_mask = 1
 
 [node name="Player" parent="." instance=ExtResource("3_dbs32")]
 position = Vector2(80, 80)
+
+[node name="Mixer" parent="." instance=ExtResource("9_f50d6")]
+position = Vector2(304, 80)

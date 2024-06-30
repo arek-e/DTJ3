@@ -189,11 +189,11 @@ metadata/_aseprite_wizard_source_file_hash_ = "0621bc0de5354d340f5daa42f034bc59"
 visible = false
 shape = SubResource("CapsuleShape2D_1dx7g")
 
-[node name="hurtBox" type="Area2D" parent="."]
+[node name="player_hurtBox" type="Area2D" parent="."]
 position = Vector2(1, 0)
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hurtBox"]
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_m0fv8")
 
@@ -207,4 +207,4 @@ libraries = {
 "": SubResource("AnimationLibrary_8vn3v")
 }
 
-[connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="area_entered" from="player_hurtBox" to="." method="_on_hurt_box_area_entered"]

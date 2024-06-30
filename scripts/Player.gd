@@ -4,14 +4,13 @@ extends Node2D
 @onready var character_sprite = $Character/CharacterSprite
 @onready var move_timer = $Character/TileMovementDelayTimer
 @onready var animation_player = $AnimationPlayer
-
+@onready var hurtBox = $player_hurtBox
 @export var inventory: Inventory
 
 var can_move = true
 var is_moving = false
 var move_delay = 0.2
 var movement_speed = 3
-
 
 
 func _ready():
@@ -50,13 +49,15 @@ func _process(delta):
 			start_move_delay()
 		
 		if Input.is_action_pressed("DropItem"):
-			print("Drop Item")
-			
-			# TODO: If standing on item, swap?
+			var areas: Array[Area2D] = hurtBox.get_overlapping_areas()
+	
+			for area in areas:
+				# If the player is standing in the mixer area then dont drop item
+				if(area.name == "Mixer"):
+					return
 			
 			inventory.drop_current_item()
 			
-		
 func move(direction: Vector2):
 	if (tile_map == null):
 		print("Error: tile_map is null!")
