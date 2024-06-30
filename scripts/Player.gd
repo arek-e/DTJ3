@@ -75,7 +75,7 @@ func move(direction: Vector2):
 	
 	var tile_data: TileData = tile_map.get_cell_tile_data(0, target_tile)
 
-	print_debug(tile_data.get_custom_data("walkable"))
+	# print_debug(tile_data.get_custom_data("walkable"))
 	
 	#if(tile_data.get_custom_data("walkable") == false):
 	#	return
