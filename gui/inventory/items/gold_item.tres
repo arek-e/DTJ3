@@ -7,3 +7,5 @@
 script = ExtResource("1_ylkyf")
 name = "Test item"
 texture = ExtResource("2_86rst")
+is_edible = false
+is_craftable = false

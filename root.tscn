@@ -1,14 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://b0jx2p0lbmhpg"]
 
-[ext_resource type="Script" path="res://root.gd" id="1_e08bo"]
 [ext_resource type="Script" path="res://scripts/GuiController.gd" id="1_i23xs"]
+[ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_o34rd"]
 [ext_resource type="Texture2D" uid="uid://dn4lp7mapj83w" path="res://assets/Modern_Interiors_Free_v2.2/Modern tiles_Free/Interiors_free/32x32/Room_Builder_free_32x32.png" id="1_y3umo"]
 [ext_resource type="Texture2D" uid="uid://bp20i53y4d48u" path="res://assets/Modern_Interiors_Free_v2.2/Modern tiles_Free/Interiors_free/32x32/Interiors_free_32x32.png" id="2_umihn"]
 [ext_resource type="PackedScene" uid="uid://dticp48l1hrnf" path="res://gui/inventory/inventory_gui.tscn" id="3_18iwa"]
-[ext_resource type="PackedScene" uid="uid://prthhauodu7w" path="res://prefab/player.tscn" id="3_dbs32"]
-[ext_resource type="PackedScene" uid="uid://dg3wruowpohig" path="res://scenes/countdown_scene.tscn" id="4_rrbmx"]
-[ext_resource type="PackedScene" uid="uid://cob4nq3n8fvmj" path="res://collectable/collectables/Coin.tscn" id="8_508pr"]
-[ext_resource type="PackedScene" uid="uid://drhysyfstl3bk" path="res://potion mixer/mixer.tscn" id="9_f50d6"]
+[ext_resource type="PackedScene" uid="uid://bl78vwdygtah7" path="res://gui/recipe/recipe_gui.tscn" id="4_tdidl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ut25g"]
 texture = ExtResource("1_y3umo")
@@ -4072,13 +4069,11 @@ physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_ut25g")
 sources/4 = SubResource("TileSetAtlasSource_2mfie")
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_e08bo")
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_o34rd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("1_i23xs")
-
-[node name="CountdownScene" parent="CanvasLayer" instance=ExtResource("4_rrbmx")]
 
 [node name="InventoryGui" parent="CanvasLayer" instance=ExtResource("3_18iwa")]
 anchors_preset = 8
@@ -4092,6 +4087,8 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="RecipeGui" parent="CanvasLayer" instance=ExtResource("4_tdidl")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_t2brv")
