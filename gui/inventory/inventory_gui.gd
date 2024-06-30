@@ -33,14 +33,19 @@ func changeSlot(slot_index: int) -> void:
 	
 	# Ugly way, I hate it :D
 	if slot_index == 0:
+		inventory.current_item_index = slot_index
 		$NinePatchRect/GridContainer/InventorySlot0.grab_focus()
 	elif slot_index == 1:
+		inventory.current_item_index = slot_index
 		$NinePatchRect/GridContainer/InventorySlot1.grab_focus()
 	elif slot_index == 2:
+		inventory.current_item_index = slot_index
 		$NinePatchRect/GridContainer/InventorySlot2.grab_focus()
 	elif slot_index == 3:
+		inventory.current_item_index = slot_index
 		$NinePatchRect/GridContainer/InventorySlot3.grab_focus()
 	elif slot_index == 4:
+		inventory.current_item_index = slot_index
 		$NinePatchRect/GridContainer/InventorySlot4.grab_focus()
 
 
