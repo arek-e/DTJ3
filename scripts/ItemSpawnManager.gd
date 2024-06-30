@@ -8,6 +8,16 @@ var item_death_fungus = preload("res://collectable/collectables/DeathFungus.tscn
 var item_desert_fungus = preload("res://collectable/collectables/DesertFungus.tscn")
 var item_posion_fungus = preload("res://collectable/collectables/PoisionFungus.tscn")
 
+var collectible_spawn_points: Array = [
+	Vector2(494, 291),
+	Vector2(302, 195),
+	Vector2(654, 259),
+	Vector2(622, 131),
+	Vector2(462, 131),
+	Vector2(430, 227),
+	Vector2(462, 387),
+	Vector2(686, 387),
+]
 
 var item_id_list : Dictionary = {
 	"DeadFish" : item_dead_fish,
@@ -34,13 +44,26 @@ func _ready():
 	
 func get_all_items() -> Array:
 	return item_list
+
+func pick_random_points(points_array: Array, number_of_points: int) -> Array:
+	var selected_points = []
+	for i in range(number_of_points):
+		if points_array.size() == 0:
+			break
+		var index = randi() % points_array.size()
+		selected_points.append(points_array[index])
+		points_array.pop_at(index)
+	return selected_points
 	
 func spawn_world_items():
-	spawn_item(item_dead_fish, Vector2(100, 200))
-	spawn_item(item_half_empty_flask, Vector2(200, 150))
-	spawn_item(item_death_fungus, Vector2(250, 250))
-	spawn_item(item_posion_fungus, Vector2(300, 250))
-	spawn_item(item_desert_fungus, Vector2(250, 300))
+	var selected_points = pick_random_points(collectible_spawn_points, 5)
+	spawn_item(item_dead_fish, selected_points[0])
+	spawn_item(item_half_empty_flask, selected_points[1])
+	spawn_item(item_death_fungus, selected_points[2])
+	spawn_item(item_posion_fungus, selected_points[3])
+	spawn_item(item_desert_fungus, selected_points[4])
+	
+	
 
 func spawn_item(object, position: Vector2) -> void:
 	# Instance the item scene

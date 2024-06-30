@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://b0jx2p0lbmhpg"]
+[gd_scene load_steps=58 format=3 uid="uid://b0jx2p0lbmhpg"]
 
 [ext_resource type="Script" path="res://scripts/GuiController.gd" id="1_i23xs"]
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_o34rd"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dticp48l1hrnf" path="res://gui/inventory/inventory_gui.tscn" id="3_18iwa"]
 [ext_resource type="Texture2D" uid="uid://cq5peo8bbcct4" path="res://assets/Tech Dungeon Roguelite - Asset Pack (DEMO)/tileset x2.png" id="5_els7v"]
 [ext_resource type="Texture2D" uid="uid://bfliyixjm4s61" path="res://assets/Items/spawn_point_icons/mixer_spawn_point.png" id="7_btk5e"]
+[ext_resource type="Texture2D" uid="uid://bev23qyeiji4m" path="res://assets/Items/spawn_point_icons/collectible_spawn_point.png" id="8_nfj0q"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_npmvr"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, -1, -16, -1.25)
@@ -7120,3 +7121,59 @@ position = Vector2(15, 99)
 [node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/MixerSpawnPoint"]
 visible = false
 texture = ExtResource("7_btk5e")
+
+[node name="ItemSpawnPoint" type="Node2D" parent="SpawnPoints"]
+position = Vector2(494, 291)
+
+[node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/ItemSpawnPoint"]
+visible = false
+texture = ExtResource("8_nfj0q")
+
+[node name="ItemSpawnPoint2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(302, 195)
+
+[node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/ItemSpawnPoint2"]
+visible = false
+texture = ExtResource("8_nfj0q")
+
+[node name="ItemSpawnPoint3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(654, 259)
+
+[node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/ItemSpawnPoint3"]
+visible = false
+texture = ExtResource("8_nfj0q")
+
+[node name="ItemSpawnPoint4" type="Node2D" parent="SpawnPoints"]
+position = Vector2(622, 131)
+
+[node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/ItemSpawnPoint4"]
+visible = false
+texture = ExtResource("8_nfj0q")
+
+[node name="ItemSpawnPoint5" type="Node2D" parent="SpawnPoints"]
+position = Vector2(462, 131)
+
+[node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/ItemSpawnPoint5"]
+visible = false
+texture = ExtResource("8_nfj0q")
+
+[node name="ItemSpawnPoint6" type="Node2D" parent="SpawnPoints"]
+position = Vector2(430, 227)
+
+[node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/ItemSpawnPoint6"]
+visible = false
+texture = ExtResource("8_nfj0q")
+
+[node name="ItemSpawnPoint7" type="Node2D" parent="SpawnPoints"]
+position = Vector2(462, 387)
+
+[node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/ItemSpawnPoint7"]
+visible = false
+texture = ExtResource("8_nfj0q")
+
+[node name="ItemSpawnPoint8" type="Node2D" parent="SpawnPoints"]
+position = Vector2(686, 387)
+
+[node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/ItemSpawnPoint8"]
+visible = false
+texture = ExtResource("8_nfj0q")
