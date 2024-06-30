@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dc74d0joptms4"]
+
+[ext_resource type="Script" path="res://gui/inventory/inventory_item.gd" id="1_rtwhg"]
+[ext_resource type="Texture2D" uid="uid://g20n74e44j74" path="res://assets/Items/Flask_half_full_blue_item.png" id="2_t5bye"]
+
+[resource]
+script = ExtResource("1_rtwhg")
+name = "HalfEmptyBlueFlask"
+texture = ExtResource("2_t5bye")
+is_edible = false
+is_craftable = false

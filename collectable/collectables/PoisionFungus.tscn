@@ -7,7 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_lr6jl"]
 script = ExtResource("3_prn02")
-name = "Poision Fungus"
+name = "PoisionFungus"
 texture = ExtResource("4_cse3t")
 is_edible = false
 is_craftable = false
