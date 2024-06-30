@@ -3,6 +3,7 @@ extends Resource
 class_name Inventory
 
 signal updated
+signal dropItem
 
 @export var items: Array[InventoryItem]
 var available_inventory_slots = 5	# Must update after chaning items.size!!
@@ -25,6 +26,7 @@ func drop_current_item() -> InventoryItem:
 	if items[current_item_index] != null:
 		available_inventory_slots += 1
 		var item: InventoryItem = items[current_item_index]
+		emit_signal("dropItem")
 		clear_item_from_array(current_item_index)
 		return item
 	else:

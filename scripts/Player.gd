@@ -12,6 +12,7 @@ var is_moving = false
 var move_delay = 0.2
 var movement_speed = 3
 
+signal pickupSound
 
 func _ready():
 	move_timer.connect("timeout", Callable(self, "_on_move_timer_timeout"))
@@ -95,5 +96,6 @@ func set_move_delay(new_delay):
 func _on_hurt_box_area_entered(area):
 	if area.has_method("collect"):
 		if inventory.get_amount_of_empty_slots() > 0:
+			emit_signal("pickupSound")
 			area.collect(inventory)
 		

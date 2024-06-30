@@ -1,0 +1,26 @@
+gd_scene load_steps=5 format=3 uid="uid://ddlf18iei834u"]
+
+[ext_resource type="Script" path="res://scripts/Object.gd" id="1_twq2p"]
+[ext_resource type="Script" path="res://scripts/collisionBoxes/HurtBox.gd" id="2_yqr20"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rts2"]
+size = Vector2(31, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ij2k"]
+size = Vector2(31, 32)
+
+[node name="Object" type="StaticBody2D"]
+script = ExtResource("1_twq2p")
+
+[node name="ObjectSprite" type="Sprite2D" parent="."]
+
+[node name="HurtBox" type="Area2D" parent="ObjectSprite"]
+script = ExtResource("2_yqr20")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectSprite/HurtBox"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_7rts2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_1ij2k")

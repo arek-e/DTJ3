@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxr14tu8rb4si"]
+
+[ext_resource type="PackedScene" uid="uid://dtatodwyohj8y" path="res://collectable/collectable.tscn" id="1_1y2iv"]
+[ext_resource type="Script" path="res://Coin.gd" id="2_b7x3b"]
+[ext_resource type="Resource" uid="uid://p2bnhpv8308b" path="res://gui/inventory/items/gold_item.tres" id="3_v282k"]
+[ext_resource type="Texture2D" uid="uid://buiqgh01d0u7y" path="res://assets/Items/Dead_fish.png" id="4_g76ef"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7kyy"]
+radius = 22.6274
+
+[node name="Collectable" instance=ExtResource("1_1y2iv")]
+script = ExtResource("2_b7x3b")
+itemRes = ExtResource("3_v282k")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("4_g76ef")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_b7kyy")
